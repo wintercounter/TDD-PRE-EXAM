@@ -1,4 +1,4 @@
-// Winter
+// Winter 2
 
 var assert = require('chai').assert,
 	Sample = require('../libs/sample');
