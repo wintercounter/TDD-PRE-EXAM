@@ -1,0 +1,29 @@
+1.
+Throws exception if not string
+Remove multiple splitter chars
+Return the correct array
+	- Test with multiple values and cases
+	- Do not accept empty values
+
+2.
+Use the previous function in a loop
+Test for correct return values
+
+3.
+Refactor multi-line function to handle flag.
+Do JSON conversation
+
+4.
+Make logic that triggers correct action for different flags
+	- Note the trick: same starting, make use of length comparsation
+Do parsing the first line, and overwrite/merge the provided options with the default ones.
+
+5.
+Implement % case as flag
+Do number conversation and make them as delimiters
+Do parameter validation
+	Is not empty
+	Are all available
+	Is number
+	Length check (multiple cases; 0)
+	Is valid (multiple cases; 0)
