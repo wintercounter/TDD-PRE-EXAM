@@ -4,6 +4,9 @@ var assert = require('chai').assert,
 	InputParser = require('../libs/InputParser');
 
 suite('Sample test', function() {
+
+	var Instance;
+
 	setup(function() {
 
 	});
@@ -31,5 +34,17 @@ suite('Sample test', function() {
 		assert.doesNotThrow(function(){new InputParser('a  ')}, Error);
 		assert.doesNotThrow(function(){new InputParser('0')}, Error);
 		assert.doesNotThrow(function(){new InputParser('743  \n')}, Error);
+	});
+
+	test('Test "getResult" method', function() {
+		// Simply test splitting
+		assert.isArray(new InputParser('a').getResult());
+		assert.isArray(new InputParser('a,b,c').getResult());
+		assert.isArray(new InputParser('a,,d,,h,').getResult());
+
+		// Test correct length
+		assert.strictEqual(new InputParser('a').getResult().length, 1);
+		assert.strictEqual(new InputParser('a,b,c').getResult().length, 3);
+		assert.strictEqual(new InputParser('a,,d,,h,').getResult().length, 3);
 	});
 });
