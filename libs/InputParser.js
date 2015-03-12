@@ -16,8 +16,15 @@ InputParser.prototype.init = function(value) {
 };
 
 InputParser.prototype.validateInput = function() {
+
+	// Trim first
+	this.inputValue = this.inputValue.trim();
+
 	// Validation for empty input
-	if (typeof this.inputValue !== 'string' || this.inputValue.length < InputParser.MIN_LENGTH) {
+	if (
+		typeof this.inputValue !== 'string' ||
+		this.inputValue.length < InputParser.MIN_LENGTH
+	) {
 		throw Error();
 	}
 };
