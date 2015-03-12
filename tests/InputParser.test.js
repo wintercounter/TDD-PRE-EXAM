@@ -47,4 +47,16 @@ suite('Sample test', function() {
 		assert.strictEqual(new InputParser('a,b,c').getResult().length, 3);
 		assert.strictEqual(new InputParser('a,,d,,h,').getResult().length, 3);
 	});
+
+	test('Check action detector (multiline)', function() {
+		assert.isFalse(new InputParser('a')._isMultiline);
+		assert.isTrue(new InputParser("a\na")._isMultiline);
+		assert.isFalse(new InputParser("a\n")._isMultiline);
+		assert.isFalse(new InputParser("\na\n")._isMultiline);
+		assert.isFalse(new InputParser("\na")._isMultiline);
+		assert.isTrue(new InputParser("\na\na\n")._isMultiline);
+		assert.strictEqual(new InputParser("\na\na\n").getResult().length, 2);
+		assert.isArray(new InputParser("\na,b\na\n").getResult()[0]);
+		assert.strictEqual(new InputParser("\na\na\n").getResult().length, 2);
+	});
 });
